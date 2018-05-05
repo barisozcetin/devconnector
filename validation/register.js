@@ -3,7 +3,6 @@ const isEmpty = require("./is-empty");
 
 module.exports = function validateRegisterInput(data) {
   let errors = {};
-  console.log("validate içerisinde");
 
   data.name = !isEmpty(data.name) ? data.name : "";
   data.email = !isEmpty(data.email) ? data.email : "";
@@ -12,7 +11,6 @@ module.exports = function validateRegisterInput(data) {
 
   if (!Validator.isLength(data.name, { min: 2, max: 30 })) {
     errors.name = "Name must be between 2 and 3 characters";
-    console.log("errore girdi");
   }
 
   if (Validator.isEmpty(data.name)) {
