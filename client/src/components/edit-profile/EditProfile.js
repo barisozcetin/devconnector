@@ -7,7 +7,6 @@ import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import SelectListGroup from "../common/SelectListGroup";
 import InputGroup from "../common/InputGroup";
 import { createProfile, getCurrentProfile } from "../../actions/profileActions";
-import isEmpty from "../../validation/is-empty";
 
 class EditProfile extends Component {
   state = {
@@ -40,7 +39,6 @@ class EditProfile extends Component {
       const profile = nextProps.profile.profile;
 
       // Make skills array back to comma seperated value
-      console.log(profile);
       const skills = profile.skills.join(",");
       const {
         handle = "",
