@@ -93,10 +93,10 @@ export class AddExperience extends Component {
                 <h6>To Date</h6>
                 <TextFieldGroup
                   type="date"
-                  name="from"
-                  value={this.state.from}
+                  name="to"
+                  value={this.state.to}
                   onChange={this.onChange}
-                  error={errors.from}
+                  error={errors.to}
                   disabled={this.state.disabled ? "disabled" : ""}
                 />
                 <div className="form-check mb-4">
