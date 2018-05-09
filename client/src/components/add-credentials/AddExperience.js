@@ -115,7 +115,7 @@ export class AddExperience extends Component {
                 </div>
                 <TextAreaFieldGroup
                   placeholder="Job Description"
-                  name="Description"
+                  name="description"
                   value={this.state.description}
                   onChange={this.onChange}
                   error={errors.description}

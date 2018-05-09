@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import isEmpty from "../../validation/is-empty";
 
 class ProfileHeader extends Component {
-  static propTypes = {};
+  static propTypes = {
+    profile: PropTypes.object.isRequired
+  };
 
   render() {
     const { profile } = this.props;
