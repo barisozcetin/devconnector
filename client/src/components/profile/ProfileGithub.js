@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 class ProfileGithub extends Component {
   static propTypes = {
-    user: PropTypes.string.isRequired
+    username: PropTypes.string.isRequired
   };
   state = {
     clientId: "9f630934d3195efda4d2",
@@ -23,7 +23,9 @@ class ProfileGithub extends Component {
     )
       .then(res => res.json())
       .then(data => {
-        this.setState({ repos: data });
+        if (this.refs.myRef) {
+          this.setState({ repos: data });
+        }
       })
       .catch(err => console.log(err));
   }
@@ -58,7 +60,7 @@ class ProfileGithub extends Component {
     ));
 
     return (
-      <div>
+      <div ref="myRef">
         <hr />
         <h3 className="mb-4">Latest Github Repos</h3>
         {repoItems}

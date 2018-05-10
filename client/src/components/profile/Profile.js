@@ -8,6 +8,7 @@ import ProfileCreds from "./ProfileCreds";
 import ProfileGithub from "./ProfileGithub";
 import Spinner from "../common/Spinner";
 import { getProfileByHandle } from "../../actions/profileActions";
+import isEmpty from "../../validation/is-empty";
 
 class Profile extends Component {
   static propTypes = {
@@ -21,11 +22,18 @@ class Profile extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+    console.log(this.props);
+    if (isEmpty(nextProps.profile.profile) && this.props.profile.loading) {
+      this.props.history.push("/not-found");
+    }
+  }
+
   render() {
     const { profile, loading } = this.props.profile;
     let profileContent;
-
-    if (profile === null || loading) {
+    if (isEmpty(profile) || loading) {
       profileContent = <Spinner />;
     } else {
       profileContent = (
