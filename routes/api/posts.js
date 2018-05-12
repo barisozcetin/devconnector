@@ -98,9 +98,8 @@ router.post(
       Post.findById(req.params.id)
         .then(post => {
           if (
-            post.likes.likes.filter(
-              like => like.user.toString() === req.user.id
-            ).length === 0
+            post.likes.filter(like => like.user.toString() === req.user.id)
+              .length !== 0
           ) {
             return res.status(400).json({ alreadyliked: "already liked" });
           }
@@ -124,9 +123,8 @@ router.post(
       Post.findById(req.params.id)
         .then(post => {
           if (
-            post.likes.likes.filter(
-              like => like.user.toString() === req.user.id
-            ).length === 0
+            post.likes.filter(like => like.user.toString() === req.user.id)
+              .length === 0
           ) {
             return res.status(400).json({ notliked: "Post not liked" });
           }
